@@ -15,14 +15,14 @@ const MainCase = () => {
     setOpenPop,
   } = UseCaseContext()
   const style = {
-    mainDiv: `flex w-[100%] h-[100vh] items-center justify-center flex-col`,
+    mainDiv: `flex w-[100%] h-[100vh] items-center justify-center bg-gray-900 flex-col`,
   }
   useEffect(() => {
     setOpenPop(!openPop)
   }, [opendCase])
   return (
     <div className={style.mainDiv}>
-      <h1 onClick={() => console.log(opendCase)}>on clikc</h1>
+      {/* <h1 onClick={() => console.log(opendCase)}>on clikc</h1> */}
 
       {/* <h1 onClick={() => console.log(caseData)}>log</h1> */}
       {!openPop ? <Open /> : <Cases />}
