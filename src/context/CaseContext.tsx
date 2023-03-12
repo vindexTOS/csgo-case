@@ -11,6 +11,9 @@ type Cell = {
   setClick: React.Dispatch<SetStateAction<boolean>>
   OpenCase: (box: any) => void
   caseData: any | unknown
+  randomizeGuns: any | unknown
+
+  scrollRef: React.RefObject<HTMLDivElement>
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -24,28 +27,73 @@ export const CaseContextProvider = ({
   const [caseData, setCaseData] = useState<any | unknown>([])
 
   useEffect(() => {}, [click])
+  const [randomizeGuns, setRandomizeGuns] = useState<any | unknown>([])
+
+  const scrollRef = React.useRef(null)
 
   const OpenCase = (box: any) => {
     //raondomizing first level array from the objects
-    const randomCase = Math.floor(Math.random() * box.length)
-    /// initialising randomized first level array
+    //randomizing 10 guns for scrolling array
+    const arr = []
+    if (box) {
+      for (let i = 0; i < 30; i++) {
+        const randomCase = Math.floor(Math.random() * box?.length)
+        /// initialising randomized first level array
 
-    const randomGroupe = box[randomCase]?.gunArray
-    //randomizing secoend level array
-    if (randomGroupe) {
-      const randomizedArray = Math.floor(Math.random() * randomGroupe?.length)
-      const randomizedGun = randomGroupe[randomizedArray]
-      if (randomizedGun !== undefined) {
-        setCaseData(randomizedGun)
-        setCaseData(randomizedGun)
+        const randomGroupe = box[randomCase]?.gunArray
+        // randmoziing group for scroll
+        const randomizedArray = Math.floor(Math.random() * randomGroupe?.length)
+        if (randomGroupe) {
+          arr.push(randomGroupe[randomizedArray])
+        }
       }
+    }
 
-      console.log(randomizedGun)
+    //randomizing secoend level array
+
+    if (arr) {
+      let newArr = arr.map((gun: any) => {
+        let color = ''
+        if (gun.rarity === 'Mil-Spec') {
+          color = '#4b69cd'
+        } else if (gun.rarity === 'Restricted') {
+          color = '#8847ff'
+        } else if (gun.rarity === 'Classified') {
+          color = '#d32ce6'
+        } else if (gun.rarity === 'Covert') {
+          color = '#eb4b4b'
+          color
+        } else if (gun.rarity === 'Rare') {
+          color = '#FFD700'
+        }
+
+        return { ...gun, color }
+      })
+      console.log(newArr)
+      const randomizerArr = Math.floor(Math.random() * newArr.length)
+      const randomizedForGroup = newArr[randomizerArr]
+
+      setRandomizeGuns(newArr)
+      if (randomizedForGroup !== undefined) {
+        setCaseData(randomizedForGroup)
+      }
     }
   }
+  useEffect(() => {
+    const scrollDistance = 2000
+    const element = (scrollRef.current as unknown) as HTMLDivElement
 
+    if (element) {
+      element.scrollBy({
+        left: scrollDistance,
+        behavior: 'smooth',
+      })
+    }
+  }, [caseData])
   return (
-    <CaseContext.Provider value={{ click, setClick, OpenCase, caseData }}>
+    <CaseContext.Provider
+      value={{ click, setClick, OpenCase, caseData, randomizeGuns, scrollRef }}
+    >
       {children}
     </CaseContext.Provider>
   )
