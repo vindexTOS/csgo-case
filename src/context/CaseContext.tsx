@@ -12,8 +12,11 @@ type Cell = {
   OpenCase: (box: any) => void
   caseData: any | unknown
   randomizeGuns: any | unknown
-
+  opendCase: any | unknown
   scrollRef: React.RefObject<HTMLDivElement>
+  line: boolean
+  openPop: boolean
+  setOpenPop: React.Dispatch<SetStateAction<boolean>>
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -25,17 +28,18 @@ export const CaseContextProvider = ({
 }) => {
   const [click, setClick] = useState<boolean>(false)
   const [caseData, setCaseData] = useState<any | unknown>([])
-
+  const [opendCase, setOpendCase] = useState<any | unknown>()
   useEffect(() => {}, [click])
   const [randomizeGuns, setRandomizeGuns] = useState<any | unknown>([])
 
   const scrollRef = React.useRef(null)
-
+  const [line, setLine] = useState<boolean>(false)
   const OpenCase = (box: any) => {
     //raondomizing first level array from the objects
     //randomizing 10 guns for scrolling array
     const arr = []
     if (box) {
+      setLine(true)
       for (let i = 0; i < 30; i++) {
         const randomCase = Math.floor(Math.random() * box?.length)
         /// initialising randomized first level array
@@ -71,14 +75,15 @@ export const CaseContextProvider = ({
       })
       console.log(newArr)
       const randomizerArr = Math.floor(Math.random() * newArr.length)
-      const randomizedForGroup = newArr[randomizerArr]
+      // const randomizedForGroup = newArr[randomizerArr]
 
       setRandomizeGuns(newArr)
-      if (randomizedForGroup !== undefined) {
-        setCaseData(randomizedForGroup)
-      }
     }
   }
+
+  // case opening pop up
+
+  const [openPop, setOpenPop] = useState<boolean>(false)
   useEffect(() => {
     const scrollDistance = 2000
     const element = (scrollRef.current as unknown) as HTMLDivElement
@@ -89,10 +94,25 @@ export const CaseContextProvider = ({
         behavior: 'smooth',
       })
     }
-  }, [caseData])
+    setTimeout(() => {
+      setOpendCase(randomizeGuns[randomizeGuns.length - 3])
+    }, 1000)
+  }, [randomizeGuns])
+
   return (
     <CaseContext.Provider
-      value={{ click, setClick, OpenCase, caseData, randomizeGuns, scrollRef }}
+      value={{
+        click,
+        setClick,
+        OpenCase,
+        caseData,
+        randomizeGuns,
+        scrollRef,
+        opendCase,
+        line,
+        openPop,
+        setOpenPop,
+      }}
     >
       {children}
     </CaseContext.Provider>

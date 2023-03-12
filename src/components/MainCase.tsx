@@ -1,18 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Chroma2 } from '../data/Data'
 import { Chroma2Utils } from '../assets/DataUtils'
 import { UseCaseContext } from '../context/CaseContext'
 import Cases from './Cases'
 import Scroller from './Scroller'
+import Open from './Open'
 const MainCase = () => {
-  const { OpenCase, caseData } = UseCaseContext()
+  const {
+    OpenCase,
+    caseData,
+    opendCase,
+    line,
+    openPop,
+    setOpenPop,
+  } = UseCaseContext()
   const style = {
     mainDiv: `flex w-[100%] h-[100vh] items-center justify-center flex-col`,
   }
+  useEffect(() => {
+    setOpenPop(!openPop)
+  }, [opendCase])
   return (
     <div className={style.mainDiv}>
+      <h1 onClick={() => console.log(opendCase)}>on clikc</h1>
+
       {/* <h1 onClick={() => console.log(caseData)}>log</h1> */}
-      <Cases />
+      {!openPop ? <Open /> : <Cases />}
+
+      <div
+        className={` z-50 absolute  h-[135px]  mt-[30rem]  w-[2px] bg-yellow-400 ${
+          !line && 'hidden'
+        }`}
+      ></div>
       <Scroller />
     </div>
   )

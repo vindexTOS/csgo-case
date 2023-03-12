@@ -2,7 +2,7 @@ import React from 'react'
 import { UseCaseContext } from '../context/CaseContext'
 
 const Scroller = () => {
-  const { randomizeGuns, scrollRef } = UseCaseContext()
+  const { randomizeGuns, scrollRef, opendCase } = UseCaseContext()
 
   const [randomIndex, setRandomIndex] = React.useState<string[]>([])
 
