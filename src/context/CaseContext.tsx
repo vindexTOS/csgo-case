@@ -17,6 +17,8 @@ type Cell = {
   line: boolean
   openPop: boolean
   setOpenPop: React.Dispatch<SetStateAction<boolean>>
+  saveInentory: () => void
+  inventory: any
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -26,6 +28,10 @@ export const CaseContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
+  const randomIDnumbs = new Array(26)
+    .fill('')
+    .map((_, i) => String.fromCharCode(i + 97))
+
   const [click, setClick] = useState<boolean>(false)
   const [caseData, setCaseData] = useState<any | unknown>([])
   const [opendCase, setOpendCase] = useState<any | unknown>()
@@ -53,6 +59,15 @@ export const CaseContextProvider = ({
       }
     }
 
+    /// random id
+    let randomId = ''
+
+    for (let i = 0; i < 16; i++) {
+      let randomizer = Math.floor(Math.random() * randomIDnumbs.length)
+
+      randomId += randomIDnumbs[randomizer]
+    }
+
     //randomizing secoend level array
 
     if (arr) {
@@ -71,7 +86,7 @@ export const CaseContextProvider = ({
           color = '#FFD700'
         }
 
-        return { ...gun, color }
+        return { ...gun, color, id: randomId }
       })
       console.log(newArr)
       const randomizerArr = Math.floor(Math.random() * newArr.length)
@@ -98,7 +113,15 @@ export const CaseContextProvider = ({
       setOpendCase(randomizeGuns[randomizeGuns.length - 3])
     }, 1000)
   }, [randomizeGuns])
+  // inventory
 
+  const [inventory, setInventory] = useState<any>([])
+  const saveInentory = () => {
+    setInventory([...inventory, opendCase])
+
+    setRandomizeGuns([])
+    setLine(!line)
+  }
   return (
     <CaseContext.Provider
       value={{
@@ -112,6 +135,8 @@ export const CaseContextProvider = ({
         line,
         openPop,
         setOpenPop,
+        saveInentory,
+        inventory,
       }}
     >
       {children}

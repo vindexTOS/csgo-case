@@ -7,14 +7,14 @@ const Cases = () => {
   const { OpenCase, caseData } = UseCaseContext()
 
   return (
-    <div>
+    <m.div initial={{ x: 100 }} animate={{ x: 0 }} className="cursor-pointer ">
       <m.img
-        initial={{ x: 100 }}
-        animate={{ x: 0 }}
+        whileHover={{ y: [0, 2, -2, 0] }}
+        transition={{ repeat: Infinity, duration: 1 }}
         onClick={() => OpenCase(Chroma2)}
         src={Chroma2Utils.case}
       />
-    </div>
+    </m.div>
   )
 }
 

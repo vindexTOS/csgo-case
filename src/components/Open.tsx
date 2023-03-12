@@ -2,9 +2,9 @@ import React from 'react'
 import { UseCaseContext } from '../context/CaseContext'
 
 const Open = () => {
-  const { opendCase } = UseCaseContext()
+  const { opendCase, saveInentory } = UseCaseContext()
   return (
-    <div className="bg-gray-700 w-[280px] h-[350px] mb-[4rem] flex flex-col items-center justify-center rounded-[20px] gap-3 ">
+    <div className="bg-gray-700 w-[280px] h-[350px] mt-[2rem] flex flex-col items-center justify-center rounded-[20px] gap-3 ">
       <h1 className="absolute mt-[3.7rem] mr-[8rem] text-green-300 ">
         ${opendCase?.price}
       </h1>
@@ -26,10 +26,13 @@ const Open = () => {
         </p>
       </div>
       <div className="flex items-center justify-between w-[100%] text-center px-7">
-        <div className="w-[6rem] bg-green-500  text-[1.1rem] text-white rounded-[20px]">
+        <div className="w-[6rem] bg-green-500  text-[1.1rem] text-white rounded-[20px] cursor-pointer">
           Sell
         </div>
-        <div className="w-[6rem] bg-yellow-500  text-[1.1rem] text-white rounded-[20px]">
+        <div
+          onClick={() => saveInentory()}
+          className="w-[6rem] bg-yellow-500  text-[1.1rem] text-white rounded-[20px] cursor-pointer"
+        >
           Save
         </div>
       </div>
