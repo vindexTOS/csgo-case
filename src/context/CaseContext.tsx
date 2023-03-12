@@ -135,6 +135,27 @@ export const CaseContextProvider = ({
     setRandomizeGuns([])
     setLine(!line)
   }
+
+  const inventoryBase = localStorage.getItem('inventory' || '[]')
+  const moneyBase = localStorage.getItem('money' || Number)
+  useEffect(() => {
+    if (inventoryBase) {
+      setInventory(JSON.parse(inventoryBase))
+    }
+  }, [])
+
+  useEffect(() => {
+    if (moneyBase) {
+      setMoney(JSON.parse(moneyBase))
+    }
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('inventory', JSON.stringify(inventory))
+  }, [inventory])
+
+  useEffect(() => {
+    localStorage.setItem('money', JSON.stringify(money))
+  }, [money])
   return (
     <CaseContext.Provider
       value={{

@@ -6,6 +6,9 @@ const NavBar = () => {
 
   return (
     <nav className="w-[100vw] h-[60px] bg-gray-700 flex items-center justify-center gap-10">
+      <Link className="text-white hover:text-gray-200" to="/">
+        Open Case
+      </Link>
       <Link to="/inventory" className="text-white hover:text-gray-200">
         Inventory
       </Link>
