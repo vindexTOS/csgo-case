@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { UseCaseContext } from '../context/CaseContext'
 const NavBar = () => {
-  const { inventory } = UseCaseContext()
+  const { inventory, money } = UseCaseContext()
 
   return (
-    <nav className="w-[100vw] h-[60px] bg-gray-700 flex items-center justify-center">
+    <nav className="w-[100vw] h-[60px] bg-gray-700 flex items-center justify-center gap-10">
       <Link to="/inventory" className="text-white hover:text-gray-200">
         Inventory
       </Link>
@@ -18,6 +18,7 @@ const NavBar = () => {
       >
         {inventory?.length}
       </div>
+      <div className="text-white ">Wallet Balance ${money}</div>
     </nav>
   )
 }

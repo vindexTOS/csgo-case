@@ -2,10 +2,10 @@ import React from 'react'
 import { UseCaseContext } from '../context/CaseContext'
 
 const Open = () => {
-  const { opendCase, saveInentory } = UseCaseContext()
+  const { opendCase, saveInentory, sellItem } = UseCaseContext()
   return (
     <div className="bg-gray-700 w-[280px] h-[350px] mt-[2rem] flex flex-col items-center justify-center rounded-[20px] gap-3 ">
-      <h1 className="absolute mt-[3.7rem] mr-[8rem] text-green-300 ">
+      <h1 className="absolute mt-[3.7rem] mr-[8rem] text-green-500 ">
         ${opendCase?.price}
       </h1>
       <img
@@ -26,7 +26,10 @@ const Open = () => {
         </p>
       </div>
       <div className="flex items-center justify-between w-[100%] text-center px-7">
-        <div className="w-[6rem] bg-green-500  text-[1.1rem] text-white rounded-[20px] cursor-pointer">
+        <div
+          onClick={() => sellItem(opendCase?.id, opendCase?.price)}
+          className="w-[6rem] bg-green-500  text-[1.1rem] text-white rounded-[20px] cursor-pointer"
+        >
           Sell
         </div>
         <div

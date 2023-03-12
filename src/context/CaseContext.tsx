@@ -9,7 +9,7 @@ import { Chroma2 } from '../data/Data'
 type Cell = {
   click: boolean
   setClick: React.Dispatch<SetStateAction<boolean>>
-  OpenCase: (box: any) => void
+  OpenCase: (box: any, points: string) => void
   caseData: any | unknown
   randomizeGuns: any | unknown
   opendCase: any | unknown
@@ -19,6 +19,8 @@ type Cell = {
   setOpenPop: React.Dispatch<SetStateAction<boolean>>
   saveInentory: () => void
   inventory: any
+  sellItem: (id: string, points: string) => void
+  money: number
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -40,9 +42,13 @@ export const CaseContextProvider = ({
 
   const scrollRef = React.useRef(null)
   const [line, setLine] = useState<boolean>(false)
-  const OpenCase = (box: any) => {
+
+  // save money system
+  const [money, setMoney] = useState<number>(50)
+  const OpenCase = (box: any, points: string) => {
     //raondomizing first level array from the objects
     //randomizing 10 guns for scrolling array
+    setMoney(money - Number(points))
     const arr = []
     if (box) {
       setLine(true)
@@ -122,6 +128,13 @@ export const CaseContextProvider = ({
     setRandomizeGuns([])
     setLine(!line)
   }
+
+  const sellItem = (id: string, points: string) => {
+    setMoney(money + Number(points))
+
+    setRandomizeGuns([])
+    setLine(!line)
+  }
   return (
     <CaseContext.Provider
       value={{
@@ -137,6 +150,8 @@ export const CaseContextProvider = ({
         setOpenPop,
         saveInentory,
         inventory,
+        sellItem,
+        money,
       }}
     >
       {children}
