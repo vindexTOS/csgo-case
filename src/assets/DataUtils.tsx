@@ -88,61 +88,61 @@ export const Chroma2Utils = {
 // Well-Worn (0.38 – 0.45)
 // Battle-Scarred (0.45 – 1.00)
 // Apr 23, 2020
-gunArray: [
-  {
-    title: 'Bayonet | Marble Fade',
-    img: Chroma2Utils.BayonetMarbelFadeFC,
-    rarity: 'Rare',
-    exterior: 'Factory New',
-    price: '875.00',
-  },
-  {
-    title: 'Bayonet | Marble Fade',
-    img: Chroma2Utils.BayonetMarbelFadeMW,
-    rarity: 'Rare',
-    exterior: 'Minimal Wear',
-    price: '630.00',
-  },
-  {
-    title: 'Bayonet | Tiger Tooth',
-    img: Chroma2Utils.BayonetTigerFC,
-    rarity: 'Rare',
-    exterior: 'Factory New',
-    price: '662.00',
-  },
-  {
-    title: 'Bayonet | Doppler',
-    img: Chroma2Utils.BayonetDopplerFC,
-    rarity: 'Rare',
-    exterior: 'Factory New',
-    price: '610.00',
-  },
-  {
-    title: 'Bayonet | Marble Fade',
-    img: Chroma2Utils.BayonetDopplerMW,
-    rarity: 'Rare',
-    exterior: 'Minimal Wear ',
-    price: '552.00',
-  },
-  {
-    title: 'Bayonet | Damascus Steel',
-    img: Chroma2Utils.BayonetSteelFC,
-    rarity: 'Rare',
-    exterior: 'Factory New',
-    price: '652.00',
-  },
-  {
-    title: 'Karambit | Marble Fade',
-    img: Chroma2Utils.KarambitFadeFC,
-    rarity: 'Rare',
-    exterior: 'Factory New',
-    price: '1.806.97',
-  },
-  {
-    title: 'Flip Knife | Doppler',
-    img: Chroma2Utils.FlipKnifeFC,
-    rarity: 'Rare',
-    exterior: 'Factory New',
-    price: '452.00',
-  },
-]
+// gunArray: [
+//   {
+//     title: 'Bayonet | Marble Fade',
+//     img: Chroma2Utils.BayonetMarbelFadeFC,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '875.00',
+//   },
+//   {
+//     title: 'Bayonet | Marble Fade',
+//     img: Chroma2Utils.BayonetMarbelFadeMW,
+//     rarity: 'Rare',
+//     exterior: 'Minimal Wear',
+//     price: '630.00',
+//   },
+//   {
+//     title: 'Bayonet | Tiger Tooth',
+//     img: Chroma2Utils.BayonetTigerFC,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '662.00',
+//   },
+//   {
+//     title: 'Bayonet | Doppler',
+//     img: Chroma2Utils.BayonetDopplerFC,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '610.00',
+//   },
+//   {
+//     title: 'Bayonet | Marble Fade',
+//     img: Chroma2Utils.BayonetDopplerMW,
+//     rarity: 'Rare',
+//     exterior: 'Minimal Wear ',
+//     price: '552.00',
+//   },
+//   {
+//     title: 'Bayonet | Damascus Steel',
+//     img: Chroma2Utils.BayonetSteelFC,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '652.00',
+//   },
+//   {
+//     title: 'Karambit | Marble Fade',
+//     img: Chroma2Utils.KarambitFadeFC,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '1.806.97',
+//   },
+//   {
+//     title: 'Flip Knife | Doppler',
+//     img: Chroma2Utils.FlipKnifeFC,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '452.00',
+//   },
+// ]

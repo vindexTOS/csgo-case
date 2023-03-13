@@ -24,3 +24,9 @@
 .shield {
   transform: scaleX(1);
 }
+
+.boxshaddow {
+  box-shadow: 2px -1px 78px 25px rgba(33, 236, 220, 0.75);
+  -webkit-box-shadow: 2px -1px 78px 25px rgba(33, 236, 220, 0.75);
+  -moz-box-shadow: 2px -1px 78px 25px rgba(33, 236, 220, 0.75);
+}

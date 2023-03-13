@@ -36,6 +36,12 @@ type Cell = {
   play: (id: string) => void
   gabenAi: string
   player: string
+  playerLife: number
+  gabenLife: number
+  reTry: () => void
+  takePrize: (box: any) => void
+  giftInvenotry: any
+  giftMoney: number
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -254,35 +260,137 @@ export const CaseContextProvider = ({
   const [player, setPlayer] = useState<string>('')
   const [gabenAi, setGabenAi] = useState<string>('')
   const [winLose, setWinLose] = useState<string>('')
+
+  // life counter
+  const [playerLife, setPlayerLife] = useState<number>(3)
+  const [gabenLife, setGabenLife] = useState<number>(3)
+
+  const [gabeWon, setGabeWon] = useState<boolean>(false)
   const play = (id: string) => {
     setPlayer(id)
     let random = Math.floor(Math.random() * playArr.length)
     setGabenAi(playArr[random])
-    if (id === 'rock' && gabenAi === 'rock') {
-      setWinLose('tie')
-    } else if (id === 'rock' && playArr[random] === 'scissor') {
-      setWinLose('player won')
-    } else if (id === 'rock' && playArr[random] === 'paper') {
-      setWinLose('gabe won')
-    } else if (id === 'paper' && playArr[random] === 'paper') {
-      setWinLose('tie')
-    } else if (id === 'paper' && playArr[random] === 'rock') {
-      setWinLose('player won')
-    } else if (id === 'paper' && playArr[random] === 'scissor') {
-      setWinLose('gabe won')
-    } else if (id === 'scissor' && playArr[random] === 'scissor') {
-      setWinLose('tie')
-    } else if (id === 'scissor' && playArr[random] === 'paper') {
-      setWinLose('player won')
-    } else if (id === 'scissor' && playArr[random] === 'rock') {
-      setWinLose('gabe won')
+    if (playerLife > 0 && gabenLife > 0) {
+      if (id === 'rock' && gabenAi === 'rock') {
+        setWinLose('tie')
+      } else if (id === 'rock' && playArr[random] === 'scissor') {
+        setWinLose('player won')
+        setGabenLife(gabenLife - 1)
+      } else if (id === 'rock' && playArr[random] === 'paper') {
+        setWinLose('gabe won')
+        setPlayerLife(playerLife - 1)
+      } else if (id === 'paper' && playArr[random] === 'paper') {
+        setWinLose('tie')
+      } else if (id === 'paper' && playArr[random] === 'rock') {
+        setWinLose('player won')
+        setGabenLife(gabenLife - 1)
+      } else if (id === 'paper' && playArr[random] === 'scissor') {
+        setWinLose('gabe won')
+        setPlayerLife(playerLife - 1)
+      } else if (id === 'scissor' && playArr[random] === 'scissor') {
+        setWinLose('tie')
+      } else if (id === 'scissor' && playArr[random] === 'paper') {
+        setWinLose('player won')
+        setGabenLife(gabenLife - 1)
+      } else if (id === 'scissor' && playArr[random] === 'rock') {
+        setWinLose('gabe won')
+        setPlayerLife(playerLife - 1)
+      }
     }
   }
-  useEffect(() => {
-    console.log(winLose)
-    console.log(player)
-    console.log(gabenAi)
-  }, [winLose])
+  // useEffect(() => {
+  //   if (playerLife <= 0) {
+  //     setGabeWon(true)
+  //   }
+  //   if(gabenLife)
+  // }, [winLose])
+  // try
+  const reTry = () => {
+    setWinLose('')
+    setPlayerLife(3)
+    setGabenLife(3)
+    setPlayer('')
+    setGabenAi('')
+  }
+
+  // getting a prize
+  const [giftInvenotry, setGiftInvenotry] = useState<any>()
+  const [giftMoney, setGiftMoney] = useState<number>(0)
+  const takePrize = (box: any) => {
+    let arr = []
+    for (let i = 0; i < 5; i++) {
+      const randomCase = Math.floor(Math.random() * box?.length)
+      /// initialising randomized first level array
+
+      const randomGroupe = box[randomCase]?.gunArray
+      // randmoziing group for scroll
+      const randomizedArray = Math.floor(Math.random() * randomGroupe?.length)
+      if (randomGroupe) {
+        arr.push(randomGroupe[randomizedArray])
+      }
+    }
+    let randomId = ''
+
+    for (let i = 0; i < 16; i++) {
+      let randomizer = Math.floor(Math.random() * randomIDnumbs.length)
+
+      randomId += randomIDnumbs[randomizer]
+    }
+
+    //randomizing secoend level array
+
+    if (arr) {
+      let newArr = arr.map((gun: any) => {
+        let color = ''
+        if (gun.rarity === 'Mil-Spec') {
+          color = '#4b69cd'
+        } else if (gun.rarity === 'Restricted') {
+          color = '#8847ff'
+        } else if (gun.rarity === 'Classified') {
+          color = '#d32ce6'
+        } else if (gun.rarity === 'Covert') {
+          color = '#eb4b4b'
+          color
+        } else if (gun.rarity === 'Rare') {
+          color = '#FFD700'
+        }
+
+        return { ...gun, color, id: randomId }
+      })
+      // console.log(newArr)
+
+      // const randomizedForGroup = newArr[randomizerArr]
+
+      setRandomizeGuns(newArr)
+    }
+    const pointMoney = [
+      2,
+      3,
+      5,
+      0.5,
+      0.2,
+      10,
+      30,
+      20,
+      25,
+      15,
+      12,
+      13,
+      16,
+      100,
+      200,
+      55,
+      34,
+      92.2,
+      25,
+    ]
+    const num = Math.floor(Math.random() * pointMoney.length)
+    console.log(randomizeGuns)
+    setMoney(money + pointMoney[num])
+    setInventory([...inventory, ...randomizeGuns])
+    setGiftInvenotry(arr)
+    setGiftMoney(pointMoney[num])
+  }
   return (
     <CaseContext.Provider
       value={{
@@ -311,6 +419,12 @@ export const CaseContextProvider = ({
         play,
         player,
         gabenAi,
+        playerLife,
+        gabenLife,
+        reTry,
+        takePrize,
+        giftInvenotry,
+        giftMoney,
       }}
     >
       {children}
