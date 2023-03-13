@@ -41,6 +41,7 @@ const Inventory = () => {
   const SingleProduct = (id: string) => {
     const singleProd = inventory?.find((val: any) => val.id === id)
     setSingleInvenotoryProduct(singleProd)
+    console.log(id)
   }
   return (
     <div className={style.mainDiv}>

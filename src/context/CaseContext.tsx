@@ -337,18 +337,22 @@ export const CaseContextProvider = ({
         arr.push(randomGroupe[randomizedArray])
       }
     }
-    let randomId = ''
+    let randomIdArr: string[] = []
+    for (let x = 0; x < 5; x++) {
+      let randomId = ''
 
-    for (let i = 0; i < 16; i++) {
-      let randomizer = Math.floor(Math.random() * randomIDnumbs.length)
+      for (let i = 0; i < 16; i++) {
+        let randomizer = Math.floor(Math.random() * randomIDnumbs.length)
 
-      randomId += randomIDnumbs[randomizer]
+        randomId += randomIDnumbs[randomizer]
+      }
+      randomIdArr.push(randomId)
     }
 
     //randomizing secoend level array
     let giftArray = []
     if (arr) {
-      let newArr = arr.map((gun: any) => {
+      let newArr = arr.map((gun: any, index: number) => {
         let color = ''
         if (gun.rarity === 'Mil-Spec') {
           color = '#4b69cd'
@@ -363,7 +367,7 @@ export const CaseContextProvider = ({
           color = '#FFD700'
         }
 
-        return { ...gun, color, id: randomId }
+        return { ...gun, color, id: randomIdArr[index] }
       })
 
       // const randomizedForGroup = newArr[randomizerArr]
