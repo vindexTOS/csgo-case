@@ -59,7 +59,7 @@ const GabeMain = () => {
         <audio ref={gabeRef} src={Gaben}>
           <source />
         </audio>
-        <GabeLost />
+
         {playerLife <= 0 && <GabeWon />}
         {gabenLife <= 0 && <GabeLost />}
         <div className={style.imgDiv}>

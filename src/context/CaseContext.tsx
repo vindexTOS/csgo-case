@@ -42,6 +42,9 @@ type Cell = {
   takePrize: (box: any) => void
   giftInvenotry: any
   giftMoney: number
+  giftPop: boolean
+  setGiftPop: React.Dispatch<SetStateAction<boolean>>
+  reTryIfWin: () => void
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -305,6 +308,10 @@ export const CaseContextProvider = ({
   //   if(gabenLife)
   // }, [winLose])
   // try
+
+  // pop up for box to hide
+  const [giftPop, setGiftPop] = React.useState<boolean>(true)
+
   const reTry = () => {
     setWinLose('')
     setPlayerLife(3)
@@ -317,6 +324,7 @@ export const CaseContextProvider = ({
   const [giftInvenotry, setGiftInvenotry] = useState<any>()
   const [giftMoney, setGiftMoney] = useState<number>(0)
   const takePrize = (box: any) => {
+    setGiftPop(false)
     let arr = []
     for (let i = 0; i < 5; i++) {
       const randomCase = Math.floor(Math.random() * box?.length)
@@ -338,7 +346,7 @@ export const CaseContextProvider = ({
     }
 
     //randomizing secoend level array
-
+    let giftArray = []
     if (arr) {
       let newArr = arr.map((gun: any) => {
         let color = ''
@@ -357,12 +365,12 @@ export const CaseContextProvider = ({
 
         return { ...gun, color, id: randomId }
       })
-      // console.log(newArr)
 
       // const randomizedForGroup = newArr[randomizerArr]
 
-      setRandomizeGuns(newArr)
+      giftArray.push(...newArr)
     }
+    console.log(giftArray)
     const pointMoney = [
       2,
       3,
@@ -387,9 +395,17 @@ export const CaseContextProvider = ({
     const num = Math.floor(Math.random() * pointMoney.length)
     console.log(randomizeGuns)
     setMoney(money + pointMoney[num])
-    setInventory([...inventory, ...randomizeGuns])
-    setGiftInvenotry(arr)
+    setInventory([...inventory, ...giftArray])
+    setGiftInvenotry(giftArray)
+
     setGiftMoney(pointMoney[num])
+  }
+  /// re try for winner
+  const reTryIfWin = () => {
+    setGiftInvenotry([])
+    setGiftMoney(0)
+    setGiftPop(true)
+    reTry()
   }
   return (
     <CaseContext.Provider
@@ -425,6 +441,9 @@ export const CaseContextProvider = ({
         takePrize,
         giftInvenotry,
         giftMoney,
+        giftPop,
+        setGiftPop,
+        reTryIfWin,
       }}
     >
       {children}
