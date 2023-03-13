@@ -1,11 +1,18 @@
 import React, { RefObject } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { UseCaseContext } from '../context/CaseContext'
 import csgoAudio from '../assets/Audio/CsGoMain.mp3'
-import { FiMusic } from 'react-icons/fi'
+import { TbMusic, TbMusicOff } from 'react-icons/tb'
 const NavBar = () => {
-  const { inventory, money, handleMusic, audioRef } = UseCaseContext()
-
+  const {
+    inventory,
+    money,
+    handleMusic,
+    audioRef,
+    musicStop,
+    musicIconSwitcher,
+  } = UseCaseContext()
+  const location = useLocation()
   return (
     <nav className="w-[100vw] h-[60px] bg-gray-700 flex items-center justify-center gap-10">
       <audio
@@ -17,7 +24,12 @@ const NavBar = () => {
       >
         <source type="audio/mpeg" />
       </audio>
-      <FiMusic onClick={() => handleMusic()} />
+
+      <TbMusic
+        className="text-white text-[1.5rem] hover:text-gray-300 cursor-pointer"
+        onClick={() => handleMusic()}
+      />
+
       <Link className="text-white hover:text-gray-200" to="/">
         Open Case
       </Link>

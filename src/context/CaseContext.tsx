@@ -5,6 +5,7 @@ import React, {
   useContext,
   SetStateAction,
   RefObject,
+  useReducer,
 } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Chroma2 } from '../data/Data'
@@ -29,6 +30,12 @@ type Cell = {
   handleMusic: () => void
   audioRef: RefObject<HTMLAudioElement>
   gabeRef: RefObject<HTMLAudioElement>
+  musicStop: boolean
+  musicIconSwitcher: boolean
+  winLose: string
+  play: (id: string) => void
+  gabenAi: string
+  player: string
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -182,15 +189,18 @@ export const CaseContextProvider = ({
   const audioRef: RefObject<HTMLAudioElement> = React.useRef(null)
   // gaben ref
   const gabeRef: RefObject<HTMLAudioElement> = React.useRef(null)
+  /// music icon switcher
 
+  const [musicIconSwitcher, setMusicIconSwitcher] = useState<boolean>(false)
   const [musicStop, setMusicStop] = React.useState<boolean>(true)
   const handleMusic = () => {
+    setMusicIconSwitcher(!musicIconSwitcher)
     if (location.pathname === '/') {
       setMusicStop(!musicStop)
       if (musicStop) {
         if (audioRef.current !== null) {
           audioRef.current.play()
-          audioRef.current.volume = 0.2
+          audioRef.current.volume = 0.1
         }
       } else {
         if (audioRef.current !== null) {
@@ -234,10 +244,45 @@ export const CaseContextProvider = ({
     } else {
       if (audioRef.current !== null) {
         audioRef.current.play()
-        audioRef.current.volume = 0.2
+        audioRef.current.volume = 0.1
       }
     }
   }, [location])
+
+  // rock paper and scissor
+  const playArr = ['rock', 'paper', 'scissor']
+  const [player, setPlayer] = useState<string>('')
+  const [gabenAi, setGabenAi] = useState<string>('')
+  const [winLose, setWinLose] = useState<string>('')
+  const play = (id: string) => {
+    setPlayer(id)
+    let random = Math.floor(Math.random() * playArr.length)
+    setGabenAi(playArr[random])
+    if (id === 'rock' && gabenAi === 'rock') {
+      setWinLose('tie')
+    } else if (id === 'rock' && playArr[random] === 'scissor') {
+      setWinLose('player won')
+    } else if (id === 'rock' && playArr[random] === 'paper') {
+      setWinLose('gabe won')
+    } else if (id === 'paper' && playArr[random] === 'paper') {
+      setWinLose('tie')
+    } else if (id === 'paper' && playArr[random] === 'rock') {
+      setWinLose('player won')
+    } else if (id === 'paper' && playArr[random] === 'scissor') {
+      setWinLose('gabe won')
+    } else if (id === 'scissor' && playArr[random] === 'scissor') {
+      setWinLose('tie')
+    } else if (id === 'scissor' && playArr[random] === 'paper') {
+      setWinLose('player won')
+    } else if (id === 'scissor' && playArr[random] === 'rock') {
+      setWinLose('gabe won')
+    }
+  }
+  useEffect(() => {
+    console.log(winLose)
+    console.log(player)
+    console.log(gabenAi)
+  }, [winLose])
   return (
     <CaseContext.Provider
       value={{
@@ -260,6 +305,12 @@ export const CaseContextProvider = ({
         handleMusic,
         audioRef,
         gabeRef,
+        musicStop,
+        musicIconSwitcher,
+        winLose,
+        play,
+        player,
+        gabenAi,
       }}
     >
       {children}
