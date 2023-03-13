@@ -6,6 +6,10 @@
   width: 0 !important;
 }
 
+* {
+  user-select: none;
+}
+
 .inventoryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(7rem, 8rem));

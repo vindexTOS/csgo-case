@@ -2,6 +2,7 @@ import React from 'react'
 import { Chroma2Utils } from '../assets/DataUtils'
 import { UseCaseContext } from '../context/CaseContext'
 import { Chroma2 } from '../data/Data'
+
 import { motion as m } from 'framer-motion'
 const Cases = () => {
   const { OpenCase, caseData } = UseCaseContext()

@@ -4,7 +4,9 @@ import React, {
   createContext,
   useContext,
   SetStateAction,
+  RefObject,
 } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Chroma2 } from '../data/Data'
 type Cell = {
   click: boolean
@@ -13,7 +15,7 @@ type Cell = {
   caseData: any | unknown
   randomizeGuns: any | unknown
   opendCase: any | unknown
-  scrollRef: React.RefObject<HTMLDivElement>
+  scrollRef: RefObject<HTMLDivElement>
   line: boolean
   openPop: boolean
   setOpenPop: React.Dispatch<SetStateAction<boolean>>
@@ -23,6 +25,10 @@ type Cell = {
   money: number
 
   Sell: (id: string, price: string) => void
+  audioCaseRef: RefObject<HTMLAudioElement>
+  handleMusic: () => void
+  audioRef: RefObject<HTMLAudioElement>
+  gabeRef: RefObject<HTMLAudioElement>
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -47,7 +53,13 @@ export const CaseContextProvider = ({
 
   // save money system
   const [money, setMoney] = useState<number>(50)
+
+  const audioCaseRef: RefObject<HTMLAudioElement> = React.useRef(null)
+
   const OpenCase = (box: any, points: string) => {
+    if (audioCaseRef.current !== null) {
+      audioCaseRef.current.play()
+    }
     //raondomizing first level array from the objects
     //randomizing 10 guns for scrolling array
     setMoney(money - Number(points))
@@ -125,10 +137,9 @@ export const CaseContextProvider = ({
 
   const [inventory, setInventory] = useState<any>([])
   const saveInentory = () => {
-    setInventory([...inventory, opendCase])
-
-    setRandomizeGuns([])
     setLine(!line)
+    setInventory([...inventory, opendCase])
+    setRandomizeGuns([])
   }
 
   const sellItem = (id: string, points: string) => {
@@ -166,6 +177,67 @@ export const CaseContextProvider = ({
     setInventory(singleItem)
     setMoney(money + Number(price))
   }
+
+  /// main theme song playing
+  const audioRef: RefObject<HTMLAudioElement> = React.useRef(null)
+  // gaben ref
+  const gabeRef: RefObject<HTMLAudioElement> = React.useRef(null)
+
+  const [musicStop, setMusicStop] = React.useState<boolean>(true)
+  const handleMusic = () => {
+    if (location.pathname === '/') {
+      setMusicStop(!musicStop)
+      if (musicStop) {
+        if (audioRef.current !== null) {
+          audioRef.current.play()
+          audioRef.current.volume = 0.2
+        }
+      } else {
+        if (audioRef.current !== null) {
+          audioRef.current.pause()
+        }
+      }
+    } else if (location.pathname === '/gabe') {
+      setMusicStop(!musicStop)
+      if (musicStop) {
+        if (gabeRef.current !== null) {
+          gabeRef.current.pause()
+        }
+      }
+      if (!musicStop) {
+        if (gabeRef.current !== null) {
+          gabeRef.current.play()
+          gabeRef.current.volume = 0.2
+        }
+      }
+    }
+  }
+  useEffect(() => {
+    setMusicStop(!musicStop)
+    if (audioRef.current !== null) {
+      audioRef.current.pause()
+    }
+  }, [])
+
+  const location = useLocation()
+  // gabem audio
+
+  useEffect(() => {
+    if (location.pathname === '/gabe') {
+      if (audioRef.current !== null) {
+        audioRef.current.pause()
+      }
+      if (gabeRef.current !== null) {
+        gabeRef.current.play()
+        gabeRef.current.volume = 0.2
+      }
+    } else {
+      if (audioRef.current !== null) {
+        audioRef.current.play()
+        audioRef.current.volume = 0.2
+      }
+    }
+  }, [location])
   return (
     <CaseContext.Provider
       value={{
@@ -184,6 +256,10 @@ export const CaseContextProvider = ({
         sellItem,
         money,
         Sell,
+        audioCaseRef,
+        handleMusic,
+        audioRef,
+        gabeRef,
       }}
     >
       {children}

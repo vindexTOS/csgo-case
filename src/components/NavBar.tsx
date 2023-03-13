@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import { Link } from 'react-router-dom'
 import { UseCaseContext } from '../context/CaseContext'
+import csgoAudio from '../assets/Audio/CsGoMain.mp3'
+import { FiMusic } from 'react-icons/fi'
 const NavBar = () => {
-  const { inventory, money } = UseCaseContext()
+  const { inventory, money, handleMusic, audioRef } = UseCaseContext()
 
   return (
     <nav className="w-[100vw] h-[60px] bg-gray-700 flex items-center justify-center gap-10">
+      <audio
+        ref={audioRef}
+        src={csgoAudio}
+        controls
+        className="hidden"
+        autoPlay
+      >
+        <source type="audio/mpeg" />
+      </audio>
+      <FiMusic onClick={() => handleMusic()} />
       <Link className="text-white hover:text-gray-200" to="/">
         Open Case
       </Link>
@@ -22,6 +34,10 @@ const NavBar = () => {
         {inventory?.length}
       </div>
       <div className="text-white ">Wallet Balance ${money.toFixed(2)}</div>
+      <Link to="/gabe" className="text-white ">
+        {' '}
+        Fight Gaben
+      </Link>
     </nav>
   )
 }

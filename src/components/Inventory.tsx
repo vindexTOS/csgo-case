@@ -57,21 +57,23 @@ const Inventory = () => {
       <div className=" flex items-start justify-center w-[35%]  bg-gray-700">
         <div
           ref={scroll}
-          className=" inventoryGrid  w-[100%]   max-h-[445px] overflow-y-scroll  scroll bg-gray-800"
+          className="   w-[100%]    h-[445px] overflow-y-scroll  scroll bg-gray-800"
         >
-          {inventory?.map((val: any) => {
-            return (
-              <div
-                style={{ border: `1px solid  ${val.color}` }}
-                onClick={() => SingleProduct(val.id)}
-                className="rounded-[2px] h-[9rem] w-[8rem] flex flex-col justify-center cursor-pointer hover:bg-gray-600"
-              >
-                <p className="text-[9px] ml-1  text-gray-400">{val.title}</p>
-                <img className="w-[110px] h-[110px]" src={val.img} />
-                <p className="text-[10px] text-white ml-1">${val.price}</p>
-              </div>
-            )
-          })}
+          <div className="max-h-[445px]  w-[100%] inventoryGrid  ">
+            {inventory?.map((val: any) => {
+              return (
+                <div
+                  style={{ border: `1px solid  ${val?.color}` }}
+                  onClick={() => SingleProduct(val?.id)}
+                  className="rounded-[2px] h-[9rem] w-[8rem] flex flex-col justify-center cursor-pointer hover:bg-gray-600"
+                >
+                  <p className="text-[9px] ml-1  text-gray-400">{val?.title}</p>
+                  <img className="w-[110px] h-[110px]" src={val?.img} />
+                  <p className="text-[10px] text-white ml-1">${val?.price}</p>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
       <div
