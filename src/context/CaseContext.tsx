@@ -21,6 +21,8 @@ type Cell = {
   inventory: any
   sellItem: (id: string, points: string) => void
   money: number
+
+  Sell: (id: string, price: string) => void
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -156,6 +158,14 @@ export const CaseContextProvider = ({
   useEffect(() => {
     localStorage.setItem('money', JSON.stringify(money))
   }, [money])
+
+  /// selling items
+
+  const Sell = (id: string, price: string) => {
+    let singleItem = inventory?.filter((val: any) => id !== val.id)
+    setInventory(singleItem)
+    setMoney(money + Number(price))
+  }
   return (
     <CaseContext.Provider
       value={{
@@ -173,6 +183,7 @@ export const CaseContextProvider = ({
         inventory,
         sellItem,
         money,
+        Sell,
       }}
     >
       {children}
