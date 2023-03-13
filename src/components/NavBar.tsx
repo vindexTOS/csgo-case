@@ -21,7 +21,7 @@ const NavBar = () => {
       >
         {inventory?.length}
       </div>
-      <div className="text-white ">Wallet Balance ${money}</div>
+      <div className="text-white ">Wallet Balance ${money.toFixed(2)}</div>
     </nav>
   )
 }

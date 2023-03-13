@@ -5,3 +5,14 @@
 .scroll::-webkit-scrollbar {
   width: 0 !important;
 }
+
+.inventoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 8rem));
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.scroll::-webkit-scrollbar {
+  width: 0 !important;
+}
