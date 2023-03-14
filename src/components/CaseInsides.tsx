@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, SetStateAction } from 'react'
 import { UseCaseContext } from '../context/CaseContext'
 import { Chroma2Display } from '../data/Data'
 import Scroller from './Scroller'
@@ -7,27 +7,41 @@ type caseProps = {
   caseType: any
   pointMoney: string
   caseImg: string
+  data: any
+  setState: React.Dispatch<SetStateAction<boolean>>
+  state: boolean
+  style: string
 }
 
 const CaseInsides: FC<caseProps> = ({
   caseType,
   pointMoney,
   caseImg,
+  data,
+  setState,
+  state,
+  style,
 }): JSX.Element => {
-  const { OpenCase, line } = UseCaseContext()
+  const { OpenCase, line, err } = UseCaseContext()
   return (
-    <div className="w-[80%] h-[600px] flex flex-col items-center justify-center bg-gray-600 absolute z-40 mt-[25rem]">
+    <div className="w-[80%] h-[600px] flex flex-col items-center justify-between  bg-gray-600 absolute z-40 mt-[25rem]">
+      <div
+        onClick={() => setState(!state)}
+        className="w-[100%]   flex items-center justify-end  px-5 py-2"
+      >
+        <p className="text-gray-400">Close</p>
+      </div>
       <button onClick={() => OpenCase(caseType, pointMoney)}>
         <m.img
           whileHover={{ y: [0, 2, -2, 0] }}
           transition={{ repeat: Infinity, duration: 1 }}
-          className="w-[290px] h-[290px] bottom-[22rem] left-[40%] absolute"
+          className={style}
           src={caseImg}
-        />{' '}
+        />
       </button>
 
-      <div className="flex flex-wrap gap-7 items-center justify-center">
-        {Chroma2Display.map((val: any) => {
+      <div className="flex flex-wrap gap-7 items-center justify-center ">
+        {data.map((val: any) => {
           return (
             <div
               key={val.title}
@@ -51,12 +65,20 @@ const CaseInsides: FC<caseProps> = ({
         })}
       </div>
       <div
-        className={` z-50 absolute  h-[135px]  mt-[25rem]  w-[2px] bg-yellow-400 ${
+        className={` z-50 absolute  h-[135px]  mt-[10rem]  w-[2px] bg-yellow-400 ${
           !line && 'hidden'
         }`}
       ></div>
-
+      <p className="text-red-600 font-bold text-[2rem] absolute mt-[19rem]">
+        {err}
+      </p>
       {line && <Scroller />}
+      <div
+        onClick={() => setState(!state)}
+        className="w-[100%]   flex items-center justify-end  px-5 py-2"
+      >
+        <p className="text-gray-400">Close</p>
+      </div>
     </div>
   )
 }

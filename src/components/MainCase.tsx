@@ -19,7 +19,7 @@ const MainCase = () => {
     audioCaseRef,
   } = UseCaseContext()
   const style = {
-    mainDiv: `flex w-[100%] h-[100vh] items-center  ustify-center bg-gray-900 flex-col`,
+    mainDiv: `flex w-[100%] h-[100%] items-center  justify-center bg-gray-900 flex-col`,
   }
   useEffect(() => {
     setOpenPop(!openPop)

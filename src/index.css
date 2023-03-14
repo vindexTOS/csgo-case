@@ -9,7 +9,9 @@
 * {
   user-select: none;
 }
-
+body {
+  background-color: rgb(13, 24, 39);
+}
 .inventoryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(7rem, 8rem));

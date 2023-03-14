@@ -5,6 +5,8 @@ import { Chroma2, KnifeCase } from '../data/Data'
 import giftBox from '../assets/game/giftBox.webp'
 import { motion as m } from 'framer-motion'
 import CaseInsides from './CaseInsides'
+import { Chroma2Display, knifeDisplay } from '../data/Data'
+
 type State = {
   index: number
 }
@@ -78,11 +80,23 @@ const Cases = () => {
           caseType={Chroma2}
           pointMoney={'2.25'}
           caseImg={Chroma2Utils.case}
+          data={Chroma2Display}
+          setState={setChromaTwo}
+          state={chromaTwo}
+          style={'w-[290px] h-[290px] '}
         />
       )}
-      <p className="text-red-600 font-bold text-[2rem] absolute mt-[19rem]">
-        {err}
-      </p>
+      {knifeCase && (
+        <CaseInsides
+          caseType={KnifeCase}
+          pointMoney={'300.00'}
+          caseImg={giftBox}
+          data={knifeDisplay}
+          setState={setKnifeCase}
+          state={knifeCase}
+          style={'w-[250px] h-[190px]'}
+        />
+      )}
     </m.div>
   )
 }
