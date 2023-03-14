@@ -45,6 +45,7 @@ type Cell = {
   giftPop: boolean
   setGiftPop: React.Dispatch<SetStateAction<boolean>>
   reTryIfWin: () => void
+  err: string
 }
 
 const CaseContext = createContext<Cell | null>(null)
@@ -71,64 +72,73 @@ export const CaseContextProvider = ({
   const [money, setMoney] = useState<number>(50)
 
   const audioCaseRef: RefObject<HTMLAudioElement> = React.useRef(null)
-
+  const [err, setErr] = useState<string>('')
   const OpenCase = (box: any, points: string) => {
-    if (audioCaseRef.current !== null) {
-      audioCaseRef.current.play()
-    }
-    //raondomizing first level array from the objects
-    //randomizing 10 guns for scrolling array
-    setMoney(money - Number(points))
-    const arr = []
-    if (box) {
-      setLine(true)
-      for (let i = 0; i < 30; i++) {
-        const randomCase = Math.floor(Math.random() * box?.length)
-        /// initialising randomized first level array
+    if (Number(points) < money) {
+      if (audioCaseRef.current !== null) {
+        audioCaseRef.current.play()
+      }
+      //raondomizing first level array from the objects
+      //randomizing 10 guns for scrolling array
+      setMoney(money - Number(points))
+      const arr = []
+      if (box) {
+        setLine(true)
+        for (let i = 0; i < 30; i++) {
+          const randomCase = Math.floor(Math.random() * box?.length)
+          /// initialising randomized first level array
 
-        const randomGroupe = box[randomCase]?.gunArray
-        // randmoziing group for scroll
-        const randomizedArray = Math.floor(Math.random() * randomGroupe?.length)
-        if (randomGroupe) {
-          arr.push(randomGroupe[randomizedArray])
+          const randomGroupe = box[randomCase]?.gunArray
+          // randmoziing group for scroll
+          const randomizedArray = Math.floor(
+            Math.random() * randomGroupe?.length,
+          )
+          if (randomGroupe) {
+            arr.push(randomGroupe[randomizedArray])
+          }
         }
       }
-    }
 
-    /// random id
-    let randomId = ''
+      /// random id
+      let randomId = ''
 
-    for (let i = 0; i < 16; i++) {
-      let randomizer = Math.floor(Math.random() * randomIDnumbs.length)
+      for (let i = 0; i < 16; i++) {
+        let randomizer = Math.floor(Math.random() * randomIDnumbs.length)
 
-      randomId += randomIDnumbs[randomizer]
-    }
+        randomId += randomIDnumbs[randomizer]
+      }
 
-    //randomizing secoend level array
+      //randomizing secoend level array
 
-    if (arr) {
-      let newArr = arr.map((gun: any) => {
-        let color = ''
-        if (gun.rarity === 'Mil-Spec') {
-          color = '#4b69cd'
-        } else if (gun.rarity === 'Restricted') {
-          color = '#8847ff'
-        } else if (gun.rarity === 'Classified') {
-          color = '#d32ce6'
-        } else if (gun.rarity === 'Covert') {
-          color = '#eb4b4b'
-          color
-        } else if (gun.rarity === 'Rare') {
-          color = '#FFD700'
-        }
+      if (arr) {
+        let newArr = arr.map((gun: any) => {
+          let color = ''
+          if (gun.rarity === 'Mil-Spec') {
+            color = '#4b69cd'
+          } else if (gun.rarity === 'Restricted') {
+            color = '#8847ff'
+          } else if (gun.rarity === 'Classified') {
+            color = '#d32ce6'
+          } else if (gun.rarity === 'Covert') {
+            color = '#eb4b4b'
+            color
+          } else if (gun.rarity === 'Rare') {
+            color = '#FFD700'
+          }
 
-        return { ...gun, color, id: randomId }
-      })
-      console.log(newArr)
-      const randomizerArr = Math.floor(Math.random() * newArr.length)
-      // const randomizedForGroup = newArr[randomizerArr]
+          return { ...gun, color, id: randomId }
+        })
+        console.log(newArr)
+        // const randomizerArr = Math.floor(Math.random() * newArr.length)
+        // const randomizedForGroup = newArr[randomizerArr]
 
-      setRandomizeGuns(newArr)
+        setRandomizeGuns(newArr)
+      }
+    } else {
+      setErr('not enough funds!')
+      setTimeout(() => {
+        setErr('')
+      }, 2000)
     }
   }
 
@@ -448,6 +458,7 @@ export const CaseContextProvider = ({
         giftPop,
         setGiftPop,
         reTryIfWin,
+        err,
       }}
     >
       {children}

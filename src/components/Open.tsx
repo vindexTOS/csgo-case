@@ -38,14 +38,14 @@ const Open = () => {
           <button
             disabled={!line}
             onClick={() => sellItem(opendCase?.id, opendCase?.price)}
-            className="w-[6rem] bg-green-500  text-[1.1rem] text-white rounded-[20px] cursor-pointer"
+            className="w-[6rem] bg-green-500 hover:bg-green-300  text-[1.1rem] text-white rounded-[20px] cursor-pointer"
           >
             Sell
           </button>
           <button
             disabled={!line}
             onClick={saveInentory}
-            className="w-[6rem] bg-yellow-500  text-[1.1rem] text-white rounded-[20px] cursor-pointer"
+            className="w-[6rem] bg-yellow-500 hover:bg-yellow-300  text-[1.1rem] text-white rounded-[20px] cursor-pointer"
           >
             Save
           </button>

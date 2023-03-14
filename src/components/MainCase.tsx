@@ -33,12 +33,6 @@ const MainCase = () => {
       <audio ref={audioCaseRef} src={CsGoCase} className="hidden">
         <source type="audio/mpeg" />
       </audio>
-      <div
-        className={` z-50 absolute  h-[135px]  mt-[30rem]  w-[2px] bg-yellow-400 ${
-          !line && 'hidden'
-        }`}
-      ></div>
-      {line && <Scroller />}
     </div>
   )
 }

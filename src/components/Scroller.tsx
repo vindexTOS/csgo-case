@@ -16,7 +16,7 @@ const Scroller = () => {
     <div
       ref={scrollRef}
       style={{ overflowX: 'scroll', whiteSpace: 'nowrap' }}
-      className="bg-gray-700 flex   items-center justify-center shrink-0   w-[600px]   mt-[30rem]  gap-1    absolute  scroll   rounded-[7px]    "
+      className="bg-gray-700 flex   items-center justify-center shrink-0   w-[600px]   mt-[25rem]  gap-1    absolute  scroll    rounded-[7px]    "
     >
       {randomizeGuns?.map((gun: any, index: number) => {
         return (

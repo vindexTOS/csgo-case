@@ -1,3 +1,5 @@
+import goldrare from '../assets/game/goldrare.webp'
+
 export const Chroma2Utils = {
   MP7CoreFC: `https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou6ryFAZx7P7YJgJX4MiklY2Ek_LmPYTdn2xZ_Pp9i_vG8MKg2wHlrkJlYW-mINecdw83NVnU8wK6yOru1J66vJ6fzXNnuXZ07HbUgVXp1iCJZ-qy/360fx360f `,
   MP7CoreMW: `https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou6ryFAZx7P7YJgJX4MiklY2Ek_LmPYTdn2xZ_Pp9i_vG8MKg2wHlrkJlYW-mINecdw83NVnU8wK6yOru1J66vJ6fzXNnuXZ07HbUgVXp1iCJZ-qy/360fx360f `,
@@ -94,6 +96,7 @@ export const Chroma2Utils = {
 
   Survival: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC59_8yJmomMn-PnJ6nYhm5u5Mx2gv3--Y3nj1H6rkZlN231d4LGdwJtZVHY-ALow-7sh8C7uJ2dwCAw6XQg53bYzBy3gwYMMLJFlHbHdw/360fx360f `,
   AWPDragonLore: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5Mx2gv3--Y3nj1H6qBFvMWHyIo7Adw9raF6GrlK9lLi-jJO7tJ_JzyNh63F3sX_emUPkgQYMMLL2MDRAbQ/360fx360f `,
+  goldrare,
 }
 
 // Factory New (0.00 – 0.07)

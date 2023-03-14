@@ -114,6 +114,7 @@ const Inventory = () => {
           <p>${singleInventoryProduct?.price}</p>
         </div>
         <button
+          disabled={inventory.length === 0}
           onClick={() =>
             Sell(singleInventoryProduct?.id, singleInventoryProduct?.price)
           }
