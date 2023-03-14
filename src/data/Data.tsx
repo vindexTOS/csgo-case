@@ -3785,30 +3785,6 @@ export const Chroma2Display = [
 
 export const knifeDisplay = [
   {
-    title: 'Flip Knife | Doppler',
-    img: Chroma2Utils.FlipKnifeFC,
-    rarity: 'Rare',
-    color: '#eb4b4b',
-    exterior: 'Factory New',
-    price: '452.00',
-  },
-  {
-    title: 'Talon Knife | Doppler',
-    img: Chroma2Utils.TalonDoppler,
-    rarity: 'Rare',
-    color: '#eb4b4b',
-    exterior: 'Factory New',
-    price: '950.00',
-  },
-  {
-    title: 'Ursus Knife | Marble Fade',
-    img: Chroma2Utils.UrsurKnife,
-    rarity: 'Rare',
-    color: '#eb4b4b',
-    exterior: 'Factory New',
-    price: '539.00',
-  },
-  {
     title: 'Gut Knife | Doppler',
     img: Chroma2Utils.GutDoppler,
     rarity: 'Rare',
@@ -3825,14 +3801,6 @@ export const knifeDisplay = [
     price: '138.00',
   },
   {
-    title: 'Shadow Daggers | Doppler',
-    img: Chroma2Utils.DaggersDoppler,
-    rarity: 'Rare',
-    color: '#eb4b4b',
-    exterior: 'Factory New',
-    price: '190.00',
-  },
-  {
     title: 'Gut Knife | Ultraviolet',
     img: Chroma2Utils.GutUltra,
     rarity: 'Rare',
@@ -3840,6 +3808,15 @@ export const knifeDisplay = [
     exterior: 'Field-Tested',
     price: '120.00',
   },
+  {
+    title: 'Shadow Daggers | Doppler',
+    img: Chroma2Utils.DaggersDoppler,
+    rarity: 'Rare',
+    color: '#eb4b4b',
+    exterior: 'Factory New',
+    price: '190.00',
+  },
+
   {
     title: 'Navaja Knife | Doppler',
     img: Chroma2Utils.NavajaDoppler,
@@ -3856,14 +3833,7 @@ export const knifeDisplay = [
     exterior: 'Minimal Wear',
     price: '196.74',
   },
-  {
-    title: 'Survival Knife | Night Stripe',
-    img: Chroma2Utils.Survival,
-    rarity: 'Rare',
-    color: '#eb4b4b',
-    exterior: 'Minimal Wear',
-    price: '196.74',
-  },
+
   {
     title: 'Navaja Knife | Doppler',
     img: Chroma2Utils.NavajaDoppler,
@@ -3872,21 +3842,31 @@ export const knifeDisplay = [
     exterior: 'Factory New',
     price: '180.00',
   },
+
   {
-    title: 'Gut Knife | Ultraviolet',
-    img: Chroma2Utils.GutUltra,
+    title: 'Flip Knife | Doppler',
+    img: Chroma2Utils.FlipKnifeFC,
     rarity: 'Rare',
-    color: '#eb4b4b',
-    exterior: 'Field-Tested',
-    price: '120.00',
+    color: '#FFD700',
+    exterior: 'Factory New',
+    price: '452.00',
+  },
+
+  {
+    title: 'Ursus Knife | Marble Fade',
+    img: Chroma2Utils.UrsurKnife,
+    rarity: 'Rare',
+    color: '#FFD700',
+    exterior: 'Factory New',
+    price: '539.00',
   },
   {
-    title: 'Shadow Daggers | Doppler',
-    img: Chroma2Utils.DaggersDoppler,
+    title: 'Talon Knife | Doppler',
+    img: Chroma2Utils.TalonDoppler,
     rarity: 'Rare',
-    color: '#eb4b4b',
+    color: '#FFD700',
     exterior: 'Factory New',
-    price: '190.00',
+    price: '950.00',
   },
   {
     title: 'AWP | Dragon Lore',
@@ -3895,21 +3875,5 @@ export const knifeDisplay = [
     color: '#FFD700',
     exterior: 'Factory New',
     price: '3000.00',
-  },
-  {
-    title: 'Gut Knife | Doppler',
-    img: Chroma2Utils.GutDoppler,
-    rarity: 'Rare',
-    color: '#FFD700',
-    exterior: 'Factory New',
-    price: '161.00',
-  },
-  {
-    title: ' Gut Knife | Rust Coat',
-    img: Chroma2Utils.GutRust,
-    rarity: 'Rare',
-    color: '#FFD700',
-    exterior: 'Battle-Scarred',
-    price: '138.00',
   },
 ]
