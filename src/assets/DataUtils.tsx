@@ -80,6 +80,20 @@ export const Chroma2Utils = {
   BayonetSteelFC: `https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpotLu8JAllx8zJYAJG7dG3h4OehMj4OrzZglRd6dd2j6fD8d7321bnrRA4ZGmlcNPGdQU4MF_Y-AfvxO_vjcPttZ_BzyZrvHEq-z-DyDvfktEk/360fx360f `,
   KarambitFadeFC: `https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJlY20mvbmMbfUqW1Q7MBOhuDG_ZjKhFWmrBZyNmynJNCRdQdtMlyBqwW2lbq7g8Po6ZnLwCM17yhxsX2JlxXkgEsabPsv26LDJQinCA/360fx360f`,
   FlipKnifeFC: ` https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf1f_BYQJD4eOym5Cbm_LmDKvZl3hUu_p9g-7J4bP5iUazrl0_ZWD7cIPBdFdsMwnZ-1Xqye67h5--6M-bynI173Ih4H6MmBO_1xtPcKUx0uQwW0b2/360fx360f`,
+
+  /// knife case
+
+  GutDoppler: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf1ObcTjxP09i5hJCHkuXLI7PQhW4A18l4jeHVyoD0mlOx5UE9Z2H7JdXGIFRqNQvTqQK-yOjmgJG57pXOnSFguXIl5XjUmhW_10pSLrs4W06Ueeo/360fx360f `,
+  GutRust: ` https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf1ObcTjxT08-ikYWHqPz6Or3UqWNU6dNoteXA54vwxgDlrxdtZjr3J4GXdQI4aA6DrgO_kLzvhp6-vczAyyA36ykk5XeLn0epwUYbYI3sIZ8/360fx360f`,
+  DaggersDoppler: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJfw-bbeQJD4eOym5Cbm_LmDKvZl3hUufp9g-7J4bP5iUazrl1pZ2j3cNeddlVtNAqB-lnsw--71sLu7p7Mm3Vk7CQhtnzYlxy1gE0dcKUx0oRKvnRX/360fx360f `,
+  GutUltra: ` https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf1ObcTi5N08yjhpCHksj5Nr_Yg2Zu5MRjjeyP9tWkjlfj8hA5ZGj7dYbEIw4_NV_T_ljtxOvvhZfvv5TMzScxuCQi7WGdwUK9HNF8ew/360fx360f `,
+  NavajaDoppler: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf1OrYYiR95t21n4uFnvHxDLrcqW9e-NV9j_v-5YT0m1HllB81NDG3S9rEMFFrf1nX-lS5yObt1pHt6cvLyyZg7nEl53rbzhHmiEtPau06gvWWTg3KVfNXXP7V4EoSnS0/360fx360f `,
+  TalonDoppler: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJfxPrMfipP7dezhr-KmsjwPKvBmm5D19V5i_rEprPigVC7vCwwOj6rYOnJI0RpNEbVrAXvlOi8gcDtvZrJziA1vCAqt3-MyRHm0hoYaec-1_3PQF7NVfNIAuDcUWvXnfMD/360fx360f `,
+
+  UrsurKnife: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJfxuHbZC597dGJmYGZlfvxDL3Qkm5u5Mx2gv3--Y3nj1H68hE-ZW7zLY-VcgE-NA6G_Ae8w7_u1JW5tJnMwCQxvClxsCyIn0ey0wYMMLLIK6xECQ/360fx360f `,
+
+  Survival: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0PLGeC59_8yJmomMn-PnJ6nYhm5u5Mx2gv3--Y3nj1H6rkZlN231d4LGdwJtZVHY-ALow-7sh8C7uJ2dwCAw6XQg53bYzBy3gwYMMLJFlHbHdw/360fx360f `,
+  AWPDragonLore: `https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5Mx2gv3--Y3nj1H6qBFvMWHyIo7Adw9raF6GrlK9lLi-jJO7tJ_JzyNh63F3sX_emUPkgQYMMLL2MDRAbQ/360fx360f `,
 }
 
 // Factory New (0.00 – 0.07)
@@ -89,60 +103,60 @@ export const Chroma2Utils = {
 // Battle-Scarred (0.45 – 1.00)
 // Apr 23, 2020
 // gunArray: [
+// {
+//   title: 'AWP | Dragon Lore',
+//   img: Chroma2Utils.AWPDragonLore,
+//   rarity: 'Covert',
+//   exterior: 'Factory New',
+//   price: '3000.00',
+// },
 //   {
-//     title: 'Bayonet | Marble Fade',
-//     img: Chroma2Utils.BayonetMarbelFadeFC,
+//     title: ' Gut Knife | Rust Coat',
+//     img: Chroma2Utils.GutRust,
 //     rarity: 'Rare',
-//     exterior: 'Factory New',
-//     price: '875.00',
+//     exterior: 'Battle-Scarred',
+//     price: '138.00',
 //   },
 //   {
-//     title: 'Bayonet | Marble Fade',
-//     img: Chroma2Utils.BayonetMarbelFadeMW,
+//     title: 'Shadow Daggers | Doppler',
+//     img: Chroma2Utils.DaggersDoppler,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '190.00',
+//   },
+//   {
+//     title: 'Gut Knife | Ultraviolet',
+//     img: Chroma2Utils.GutUltra,
+//     rarity: 'Rare',
+//     exterior: 'Field-Tested',
+//     price: '120.00',
+//   },
+//   {
+//     title: 'Navaja Knife | Doppler',
+//     img: Chroma2Utils.NavajaDoppler,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '180.00',
+//   },
+//   {
+//     title: 'Talon Knife | Doppler',
+//     img: Chroma2Utils.TalonDoppler,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '950.00',
+//   },
+//   {
+//     title: 'Ursus Knife | Marble Fade',
+//     img: Chroma2Utils.UrsurKnife,
+//     rarity: 'Rare',
+//     exterior: 'Factory New',
+//     price: '539.00',
+//   },
+//   {
+//     title: 'Survival Knife | Night Stripe',
+//     img: Chroma2Utils.Survival,
 //     rarity: 'Rare',
 //     exterior: 'Minimal Wear',
-//     price: '630.00',
-//   },
-//   {
-//     title: 'Bayonet | Tiger Tooth',
-//     img: Chroma2Utils.BayonetTigerFC,
-//     rarity: 'Rare',
-//     exterior: 'Factory New',
-//     price: '662.00',
-//   },
-//   {
-//     title: 'Bayonet | Doppler',
-//     img: Chroma2Utils.BayonetDopplerFC,
-//     rarity: 'Rare',
-//     exterior: 'Factory New',
-//     price: '610.00',
-//   },
-//   {
-//     title: 'Bayonet | Marble Fade',
-//     img: Chroma2Utils.BayonetDopplerMW,
-//     rarity: 'Rare',
-//     exterior: 'Minimal Wear ',
-//     price: '552.00',
-//   },
-//   {
-//     title: 'Bayonet | Damascus Steel',
-//     img: Chroma2Utils.BayonetSteelFC,
-//     rarity: 'Rare',
-//     exterior: 'Factory New',
-//     price: '652.00',
-//   },
-//   {
-//     title: 'Karambit | Marble Fade',
-//     img: Chroma2Utils.KarambitFadeFC,
-//     rarity: 'Rare',
-//     exterior: 'Factory New',
-//     price: '1.806.97',
-//   },
-//   {
-//     title: 'Flip Knife | Doppler',
-//     img: Chroma2Utils.FlipKnifeFC,
-//     rarity: 'Rare',
-//     exterior: 'Factory New',
-//     price: '452.00',
+//     price: '196.74',
 //   },
 // ]

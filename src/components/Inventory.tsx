@@ -61,9 +61,10 @@ const Inventory = () => {
           className="   w-[100%]    h-[445px] overflow-y-scroll  scroll bg-gray-800"
         >
           <div className="max-h-[445px]  w-[100%] inventoryGrid  ">
-            {inventory?.map((val: any) => {
+            {inventory?.map((val: any, i: number) => {
               return (
                 <div
+                  key={i}
                   style={{ border: `1px solid  ${val?.color}` }}
                   onClick={() => SingleProduct(val?.id)}
                   className="rounded-[2px] h-[9rem] w-[8rem] flex flex-col justify-center cursor-pointer hover:bg-gray-600"
