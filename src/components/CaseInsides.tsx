@@ -69,7 +69,7 @@ const CaseInsides: FC<caseProps> = ({
           !line && 'hidden'
         }`}
       ></div>
-      <p className="text-red-600 font-bold text-[2rem] absolute mt-[19rem]">
+      <p className="text-red-500 font-bold text-[2rem] absolute mt-[10rem]">
         {err}
       </p>
       {line && <Scroller />}

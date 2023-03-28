@@ -3718,7 +3718,7 @@ export const Chroma2Display = [
   },
   {
     title: 'CZ75-Auto | Pole Position',
-    img: Chroma2Utils.AKelitFC,
+    img: Chroma2Utils.CZ75PoleFC,
     rarity: 'Restricted',
     color: '#8847ff',
     exterior: 'Factory New',
