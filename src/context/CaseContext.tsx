@@ -421,6 +421,7 @@ export const CaseContextProvider = ({
     setGiftPop(true)
     reTry()
   }
+
   return (
     <CaseContext.Provider
       value={{
